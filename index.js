@@ -3,24 +3,25 @@ import Spline from '@splinetool/react-spline';
 
 export default function Home() {
   useEffect(() => {
-    // Function to remove the logo once it appears in the DOM
+    // Function to remove the "Built with Spline" button once it appears
     const removeWatermark = () => {
       const splineViewer = document.querySelector('spline-viewer');
       
       if (splineViewer && splineViewer.shadowRoot) {
-        const logo = splineViewer.shadowRoot.querySelector('#logo');
-        if (logo) {
-          logo.remove(); // Remove the watermark/logo
+        // Use shadowRoot to access elements inside the Spline viewer
+        const watermarkButton = splineViewer.shadowRoot.querySelector('a[href="https://spline.design/"]');
+        if (watermarkButton) {
+          watermarkButton.remove(); // Remove the "Built with Spline" button
         }
       }
     };
 
-    // Set up a MutationObserver to detect when the Spline viewer's shadow DOM is available
+    
     const observer = new MutationObserver(() => {
       removeWatermark(); // Try to remove the watermark whenever the DOM updates
     });
 
-    // Start observing the spline-viewer for changes
+    
     const splineViewer = document.querySelector('spline-viewer');
     if (splineViewer) {
       observer.observe(splineViewer, { childList: true, subtree: true });
@@ -38,4 +39,5 @@ export default function Home() {
     </main>
   );
 }
+
 
