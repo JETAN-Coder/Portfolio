@@ -3,33 +3,29 @@ import Spline from '@splinetool/react-spline';
 
 export default function Home() {
   useEffect(() => {
-    // Function to remove the "Built with Spline" button
+    // Function to remove the watermark button
     const removeWatermark = () => {
       const splineViewer = document.querySelector('spline-viewer');
       
       if (splineViewer && splineViewer.shadowRoot) {
         // Use shadowRoot to access elements inside the Spline viewer
         const watermarkButton = splineViewer.shadowRoot.querySelector('a[href="https://spline.design/?utm_source=spline-viewer&utm_campaign=spline-logo"]');
+        
         if (watermarkButton) {
-          watermarkButton.remove(); // Remove the "Built with Spline" button
+          console.log('Watermark button found and removed'); // Debugging line
+          watermarkButton.remove(); // Remove the watermark button
+        } else {
+          console.log('Watermark button not found'); // Debugging line
         }
       }
     };
 
-    // Set up a MutationObserver to detect changes in the DOM and check for the watermark
-    const observer = new MutationObserver(() => {
-      removeWatermark(); // Try to remove the watermark whenever the DOM updates
-    });
+    // Use setTimeout to add a delay for debugging purposes
+    const timeout = setTimeout(removeWatermark, 3000); // Delay for 3 seconds to allow full loading
 
-    // Start observing the Spline viewer element for changes
-    const splineViewer = document.querySelector('spline-viewer');
-    if (splineViewer) {
-      observer.observe(splineViewer, { childList: true, subtree: true });
-    }
-
-    // Clean up the observer when the component unmounts
+    // Clean up the timeout when the component unmounts
     return () => {
-      observer.disconnect();
+      clearTimeout(timeout);
     };
   }, []);
 
@@ -39,6 +35,3 @@ export default function Home() {
     </main>
   );
 }
-
-
-
