@@ -3,25 +3,26 @@ import Spline from '@splinetool/react-spline';
 
 export default function Home() {
   useEffect(() => {
-    // Function to remove the watermark image
-    const removeWatermark = () => {
-      const splineViewer = document.querySelector('spline-viewer');
+    // Function to remove the #logo element from all spline-viewer elements
+    const removeLogos = () => {
+      const splineElements = document.querySelectorAll('spline-viewer');
       
-      if (splineViewer && splineViewer.shadowRoot) {
-        // Use shadowRoot to access elements inside the Spline viewer
-        const watermarkImage = splineViewer.shadowRoot.querySelector('img[src="https://app.spline.design/_assets/_icons/icon_favicon32x32.png"]');
-        
-        if (watermarkImage) {
-          console.log('Watermark image found and removed'); // Debugging line
-          watermarkImage.remove(); // Remove the watermark image
-        } else {
-          console.log('Watermark image not found'); // Debugging line
+      splineElements.forEach((splineElement) => {
+        const shadowRoot = splineElement.shadowRoot;
+        if (shadowRoot) {
+          const logoElement = shadowRoot.querySelector('#logo');
+          if (logoElement) {
+            console.log('Logo element found and removed'); // Debugging line
+            logoElement.remove(); // Remove the logo element
+          } else {
+            console.log('Logo element not found'); // Debugging line
+          }
         }
-      }
+      });
     };
 
     // Use setTimeout to add a delay to ensure full loading
-    const timeout = setTimeout(removeWatermark, 3000); // Adjust the delay as needed
+    const timeout = setTimeout(removeLogos, 3000); // Adjust the delay as needed
 
     // Clean up the timeout when the component unmounts
     return () => {
@@ -35,3 +36,4 @@ export default function Home() {
     </main>
   );
 }
+
