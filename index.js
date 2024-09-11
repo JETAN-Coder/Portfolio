@@ -3,31 +3,27 @@ import Spline from '@splinetool/react-spline';
 
 export default function Home() {
   useEffect(() => {
-    // Function to remove the #logo element from all spline-viewer elements
-    const removeLogos = () => {
+    const removeWatermarks = () => {
+      // Select all Spline elements
       const splineElements = document.querySelectorAll('spline-viewer');
       
-      splineElements.forEach((splineElement) => {
-        const shadowRoot = splineElement.shadowRoot;
+      // Loop through each element to remove the watermark
+      splineElements.forEach(element => {
+        const shadowRoot = element.shadowRoot;
         if (shadowRoot) {
-          const logoElement = shadowRoot.querySelector('#logo');
-          if (logoElement) {
-            console.log('Logo element found and removed'); // Debugging line
-            logoElement.remove(); // Remove the logo element
-          } else {
-            console.log('Logo element not found'); // Debugging line
+          const logo = shadowRoot.querySelector('#logo');
+          if (logo) {
+            logo.remove();
           }
         }
       });
     };
 
-    // Use setTimeout to add a delay to ensure full loading
-    const timeout = setTimeout(removeLogos, 3000); // Adjust the delay as needed
+    // Use a timeout to ensure elements are loaded before watermark removal
+    const timer = setTimeout(removeWatermarks, 1000); // Adjust delay as needed
 
-    // Clean up the timeout when the component unmounts
-    return () => {
-      clearTimeout(timeout);
-    };
+    // Clean up the timer when the component unmounts
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -36,4 +32,3 @@ export default function Home() {
     </main>
   );
 }
-
