@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +8,45 @@
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.25/build/spline-viewer.js"></script>
 </head>
 <body>
-    <spline-viewer id="spline-background" url="https://prod.spline.design/rFyggwozwKESg4ty/scene.splinecode"></spline-viewer>
-    <h1>Jetans Coding Hub</h1>
+    <main>
+        <spline-viewer id="spline-background" url="https://prod.spline.design/rFyggwozwKESg4ty/scene.splinecode"></spline-viewer>
+    </main>
+
+    <script>
+        function removeWatermarks() {
+            var splineElements = document.querySelectorAll('spline-viewer');
+            console.log('Found spline elements:', splineElements);
+            
+            splineElements.forEach(element => {
+                if (element.shadowRoot) {
+                    // Try to find and remove all watermark-related elements
+                    var logo = element.shadowRoot.querySelector('#logo');
+                    var watermarkImage = element.shadowRoot.querySelector('img'); // Modify if needed
+                    
+                    if (logo) {
+                        console.log('Removing logo from element:', element);
+                        logo.remove();
+                    }
+                    
+                    if (watermarkImage) {
+                        console.log('Removing watermark image from element:', element);
+                        watermarkImage.remove();
+                    }
+                } else {
+                    console.log('No shadowRoot found for element:', element);
+                }
+            });
+        }
+
+        // Use MutationObserver to detect when the Spline viewer is fully loaded
+        const observer = new MutationObserver(() => {
+            if (document.querySelector('spline-viewer').shadowRoot) {
+                removeWatermarks();
+                observer.disconnect(); // Stop observing once done
+            }
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
+    </script>
 </body>
 </html>
