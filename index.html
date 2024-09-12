@@ -7,7 +7,24 @@
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.25/build/spline-viewer.js"></script>
 </head>
 <body>
-    <spline-viewer id="spline-background" url="https://prod.spline.design/rFyggwozwKESg4ty/scene.splinecode"></spline-viewer>
-    <h1>Jetans Coding Hub</h1>
+    <main>
+        <spline-viewer id="spline-background" url="https://prod.spline.design/rFyggwozwKESg4ty/scene.splinecode"></spline-viewer>
+    </main>
+
+    <script>
+        window.onload = function() {
+            var splineElements = document.querySelectorAll('spline-viewer');
+            
+            splineElements.forEach(element => {
+                var shadowRoot = element.shadowRoot;
+                if (shadowRoot) {
+                    var logo = shadowRoot.querySelector('#logo');
+                    if (logo) {
+                        logo.remove();
+                    }
+                }
+            });
+        };
+    </script>
 </body>
 </html>
