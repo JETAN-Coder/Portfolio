@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,19 +13,33 @@
     </main>
 
     <script>
-        window.onload = function() {
+        function removeWatermarks() {
             var splineElements = document.querySelectorAll('spline-viewer');
+            console.log('Found spline elements:', splineElements);
             
             splineElements.forEach(element => {
-                var shadowRoot = element.shadowRoot;
-                if (shadowRoot) {
-                    var logo = shadowRoot.querySelector('#logo');
+                if (element.shadowRoot) {
+                    var logo = element.shadowRoot.querySelector('#logo');
+                    console.log('Removing logo from element:', element);
                     if (logo) {
                         logo.remove();
                     }
+                } else {
+                    console.log('No shadowRoot found for element:', element);
                 }
             });
-        };
+        }
+
+        // Use MutationObserver to detect when the Spline viewer is fully loaded
+        const observer = new MutationObserver(() => {
+            if (document.querySelector('spline-viewer').shadowRoot) {
+                removeWatermarks();
+                observer.disconnect(); // Stop observing once done
+            }
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
     </script>
 </body>
 </html>
+
