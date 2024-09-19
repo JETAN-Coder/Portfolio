@@ -27,8 +27,7 @@ main {
   width: 30px;
   height: 40px;
   border-radius: 50%;
-  background: #ffffff;
+  background: #ffffff !important; /* Force background to white */
   position: absolute;
   margin: -16px 0 0 -16px;
 }
-
