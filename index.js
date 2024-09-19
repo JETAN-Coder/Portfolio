@@ -18,6 +18,7 @@ export default function Home() {
 
   return (
     <main>
+      <div className="cursor"></div>
       <Spline scene="https://prod.spline.design/rFyggwozwKESg4ty/scene.splinecode" />
     </main>
   );
