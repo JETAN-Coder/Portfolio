@@ -22,9 +22,7 @@ main {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: white; /* Set the cursor circle to white */
-  pointer-events: none; /* Ensure it doesn't block clicks */
-  transition: transform 0.1s ease-out;
-  z-index: 10; /* Make sure it appears on top of other content */
+  background: rgb(244, 244, 244); 
+  margin: -16px 0 0 -16px;
 }
 
