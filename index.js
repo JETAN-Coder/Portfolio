@@ -3,7 +3,7 @@ import Spline from '@splinetool/react-spline';
 (function() {
   console.clear();
   
-  const follower = document.querySelector('#cursor');
+  const follower = document.querySelector('#follower');
   
   let posX = 0;
   let posY = 0;

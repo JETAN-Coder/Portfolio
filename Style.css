@@ -17,12 +17,12 @@ main {
 }
 
 /* Styling for the white cursor circle */
-.cursor {
-  position: absolute;
-  width: 30px;
-  height: 30px;
+#follower {
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: rgb(244, 244, 244); 
+  background: #fbfbfb;
+  position: absolute;
   margin: -16px 0 0 -16px;
 }
 
