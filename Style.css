@@ -21,7 +21,7 @@ main {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #fbfbfb;
+  background: #000000;
   position: absolute;
   margin: -16px 0 0 -16px;
 }
