@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 /* Reset some default styles */
 body, html {
   margin: 0;
@@ -24,10 +25,11 @@ main {
 
 /* Styling for the white cursor circle */
 #follower {
-  width: 30px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: #ff0000 !important; /* Force background to white */
+  background: #000;
   position: absolute;
   margin: -16px 0 0 -16px;
 }
+
