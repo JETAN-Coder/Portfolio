@@ -1,9 +1,5 @@
-body {
-  text-align: center;
-  margin: 0;
-}
-
-html, body, #__next, main {
+/* Reset some default styles */
+body, html {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -11,20 +7,24 @@ html, body, #__next, main {
   overflow: hidden;
 }
 
+/* Ensure full height for the main content */
 main {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  position: relative; /* Important for absolute positioning of the cursor */
 }
 
+/* Styling for the white cursor circle */
 .cursor {
   position: absolute;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: rgb(221, 218, 218);
-  pointer-events: none;
+  background-color: white; /* Set the cursor circle to white */
+  pointer-events: none; /* Ensure it doesn't block clicks */
   transition: transform 0.1s ease-out;
+  z-index: 10; /* Make sure it appears on top of other content */
 }
 
