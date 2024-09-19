@@ -31,5 +31,6 @@ main {
   background: #ff0000;
   position: absolute;
   margin: -16px 0 0 -16px;
+  z-index: 1000;
 }
 
