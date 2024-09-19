@@ -34,3 +34,7 @@ main {
   z-index: 1000;
 }
 
+#spline-background {
+  position: relative; /* Ensure it can have z-index applied */
+  z-index: 1; /* Set a lower z-index than the follower */
+}
