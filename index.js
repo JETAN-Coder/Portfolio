@@ -1,5 +1,6 @@
 import Spline from '@splinetool/react-spline';
 import React, { useEffect } from 'react';
+import './styles.css';
 
 export default function Home() {
   useEffect(() => {
