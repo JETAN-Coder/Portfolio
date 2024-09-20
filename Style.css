@@ -41,51 +41,30 @@ main {
   z-index: 1; 
 }
 
-main {
-  height: 500px;
-  display: grid;
-  align-items: center;
-}
-
-main img {
-  width: 200px;
-  height: 200px;
-  animation-name: rotate;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  border-radius: 50%;
-}
-
-.ring {
+#ring {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 220px;
-  height: 220px;
+  top: 50%; /* center the ring vertically */
+  left: 50%; /* center the ring horizontally */
+  transform: translate(-50%, -50%); /* adjust the position to center the ring */
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  border: 2px solid #fff;
-  animation-name: spin;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  border: 2px solid #FF69B4; /* changed the border color to a bright pink */
+}
+
+#follower {
+  position: relative; /* make the follower a relative container */
+}
+
+#ring {
+  animation: rotate 2s linear infinite; /* added an animation to rotate the ring */
 }
 
 @keyframes rotate {
-  from {
-    transform: rotate(-360deg);
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
