@@ -38,7 +38,3 @@ main {
   position: relative; 
   z-index: 1; 
 }
-
-a[href="https://spline.design/?utm_source=spline-viewer&utm_campaign=spline-logo"] {
-  display: none !important;
-}
