@@ -33,10 +33,10 @@ main {
   background: #E2E3E5;
   position: absolute;
   margin: -16px 0 0 -16px;
-  z-index: 1000;
+  z-index: 10;
 }
 
 #spline-background {
   position: relative; 
-  z-index: 100; 
+  z-index: 1000; 
 }
