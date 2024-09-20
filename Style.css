@@ -38,3 +38,7 @@ main {
   position: relative; /* Ensure it can have z-index applied */
   z-index: 1; /* Set a lower z-index than the follower */
 }
+
+a[href*="utm_source=spline-viewer"] {
+  display: none !important;
+}
