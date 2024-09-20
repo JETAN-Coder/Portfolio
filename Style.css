@@ -27,7 +27,7 @@ main {
 #follower {
   width: 22px;
   height: 22px;
-  border-radius: 40%;
+  border-radius: 70%;
   background: #E2E3E5;
   position: absolute;
   margin: -16px 0 0 -16px;
@@ -35,10 +35,10 @@ main {
 }
 
 #spline-background {
-  position: relative; /* Ensure it can have z-index applied */
-  z-index: 1; /* Set a lower z-index than the follower */
+  position: relative; 
+  z-index: 1; 
 }
 
-a[href*="utm_source=spline-viewer"] {
+a[href="https://spline.design/?utm_source=spline-viewer&utm_campaign=spline-logo"] {
   display: none !important;
 }
