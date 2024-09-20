@@ -7,10 +7,11 @@
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.27/build/spline-viewer.js"></script>
 </head>
 <body>
-    <div id="follower" style="background: #E2E3E5;"></div>
+    <div id="circle" style="background: #E2E3E5;"></div>
     
     <spline-viewer id="spline-background" url="https://prod.spline.design/rFyggwozwKESg4ty/scene.splinecode"></spline-viewer>
 
+    <div id="ring"></div>
 </body>
 <script>
 
@@ -50,5 +51,16 @@
 	document.onmousemove = setCoords;
   update();
 })();
+
+document.addEventListener('DOMContentLoaded', function() {
+  const follower = document.querySelector('#circle');
+
+  document.addEventListener('mousemove', function(e) {
+    const mouseX = e.pageX;
+    const mouseY = e.pageY;
+
+    follower.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+  });
+});
 </script>
 </html>
