@@ -48,11 +48,16 @@ main {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 2px solid #E2E3E5;
+  border: 2px solid #FF69B4;
   transform: rotate(0deg);
   transition: transform 0.5s ease-in-out;
 }
 
-#follower:hover #ring {
-  transform: rotate(360deg);
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
