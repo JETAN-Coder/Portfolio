@@ -7,18 +7,17 @@
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.27/build/spline-viewer.js"></script>
 </head>
 <body>
-    <div id="circle" style="background: #E2E3E5;"></div>
+    <div id="follower" style="background: #E2E3E5;"></div>
     
     <spline-viewer id="spline-background" url="https://prod.spline.design/rFyggwozwKESg4ty/scene.splinecode"></spline-viewer>
 
-    <div id="ring"></div>
 </body>
 <script>
 
     (function() {
   console.clear();
   
-  const circle = document.querySelector('#circle');
+  const follower = document.querySelector('#follower');
   
   let posX = 0;
   let posY = 0;
@@ -28,7 +27,7 @@
   const ease = 0.1;
   
   function easeTo() {    
-    const followerBounds = circle.getBoundingClientRect();
+    const followerBounds = follower.getBoundingClientRect();
     
     const dX = mouseX - (followerBounds.left + 16);
     const dY = mouseY - (followerBounds.top + 16);
