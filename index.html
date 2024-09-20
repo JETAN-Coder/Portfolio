@@ -18,7 +18,7 @@
     (function() {
   console.clear();
   
-  const follower = document.querySelector('#follower');
+  const circle = document.querySelector('#circle');
   
   let posX = 0;
   let posY = 0;
@@ -28,7 +28,7 @@
   const ease = 0.1;
   
   function easeTo() {    
-    const followerBounds = follower.getBoundingClientRect();
+    const followerBounds = circle.getBoundingClientRect();
     
     const dX = mouseX - (followerBounds.left + 16);
     const dY = mouseY - (followerBounds.top + 16);
@@ -51,16 +51,5 @@
 	document.onmousemove = setCoords;
   update();
 })();
-
-document.addEventListener('DOMContentLoaded', function() {
-  const follower = document.querySelector('#circle');
-
-  document.addEventListener('mousemove', function(e) {
-    const mouseX = e.pageX;
-    const mouseY = e.pageY;
-
-    follower.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-  });
-});
 </script>
 </html>

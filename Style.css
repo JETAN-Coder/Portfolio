@@ -40,25 +40,3 @@ main {
   position: relative; 
   z-index: 1; 
 }
-
-/* Spinning ring around the circle */
-.ring {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 70px;
-  height: 70px;
-  border: 2px solid #ff0000;
-  border-radius: 50%;
-  animation: spin 2s linear infinite; /* Rotating animation */
-}
-
-/* Keyframe animation for spinning effect */
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
