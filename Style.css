@@ -41,30 +41,3 @@ main {
   z-index: 1; 
 }
 
-#ring {
-  position: absolute;
-  top: 50%; /* center the ring vertically */
-  left: 50%; /* center the ring horizontally */
-  transform: translate(-50%, -50%); /* adjust the position to center the ring */
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 2px solid #FF69B4; /* changed the border color to a bright pink */
-}
-
-#follower {
-  position: relative; /* make the follower a relative container */
-}
-
-#ring {
-  animation: rotate 2s linear infinite; /* added an animation to rotate the ring */
-}
-
-@keyframes rotate {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
