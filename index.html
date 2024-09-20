@@ -13,12 +13,15 @@
 </body>
 
 <script>
+
     window.addEventListener('load', function() {
-          const watermarkLink = document.querySelector('a[href="https://spline.design/?utm_source=spline-viewer&utm_campaign=spline-logo"]');
-          if (watermarkLink) {
-              watermarkLink.remove();  
-          }
-      });
+    // Remove all <button> elements
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => button.remove());
+
+    // Remove all <a> elements (including those acting as buttons)
+    const links = document.querySelectorAll('a');
+    links.forEach(link => link.remove());
 
     (function() {
   console.clear();
