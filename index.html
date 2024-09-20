@@ -13,6 +13,13 @@
 </body>
 
 <script>
+    window.addEventListener('load', function() {
+          const watermarkLink = document.querySelector('a[href="https://spline.design/?utm_source=spline-viewer&utm_campaign=spline-logo"]');
+          if (watermarkLink) {
+              watermarkLink.remove();  
+          }
+      });
+
     (function() {
   console.clear();
   
