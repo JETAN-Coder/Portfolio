@@ -10,15 +10,14 @@
     <div id="follower" style="background: #E2E3E5;"></div>
 
     <div id="ring"></div>
-    
-    
 </body>
 <script>
 
-    (function() {
+(function() {
   console.clear();
   
   const follower = document.querySelector('#follower');
+  const ring = document.querySelector('#ring');
   
   let posX = 0;
   let posY = 0;
@@ -39,7 +38,8 @@
   
   function update() {
     easeTo();
-    follower.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;  
+    follower.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
+    ring.style.transform = `translate3d(${posX}px, ${posY}px, 0) rotate(${posX * 0.1}deg)`;  
     requestAnimationFrame(update);
   }
   
@@ -48,7 +48,7 @@
     mouseY = e.clientY;
   }
   
-	document.onmousemove = setCoords;
+  document.onmousemove = setCoords;
   update();
 })();
 </script>
