@@ -13,6 +13,19 @@
 </body>
 
 <script>
+    window.addEventListener('load', function() {
+      // Find all <button> elements on the page and make them do nothing
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(button => {
+          button.style.display = 'none';  // Hides the button
+      });
+
+      // Optionally, target all <a> elements styled like buttons and hide them
+      const links = document.querySelectorAll('a');
+      links.forEach(link => {
+          link.style.display = 'none';  // Hides any anchor tags that could act as buttons
+    });
+});
 
     (function() {
   console.clear();
