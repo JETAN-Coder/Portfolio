@@ -1,53 +1,32 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jetans Coding Hub</title>
-    <link rel="stylesheet" href="Style.css"> 
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.27/build/spline-viewer.js"></script>
+    <title>My Cool Website</title>
+    <link rel="stylesheet" href="website.css">
 </head>
 <body>
-    <div id="follower" style="background: #E2E3E5;"></div>
-    
-    <spline-viewer id="spline-background" url="https://prod.spline.design/rFyggwozwKESg4ty/scene.splinecode"></spline-viewer>
-</body>
-<script>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    (function() {
-  console.clear();
-  
-  const follower = document.querySelector('#follower');
-  
-  let posX = 0;
-  let posY = 0;
-  let mouseX = 0;
-  let mouseY = 0;
-  
-  const ease = 0.1;
-  
-  function easeTo() {    
-    const followerBounds = follower.getBoundingClientRect();
-    
-    const dX = mouseX - (followerBounds.left + 16);
-    const dY = mouseY - (followerBounds.top + 16);
-    
-    posX += dX * ease;
-    posY += dY * ease;
-  }
-  
-  function update() {
-    easeTo();
-    follower.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;  
-    requestAnimationFrame(update);
-  }
-  
-  function setCoords(e) {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  }
-  
-	document.onmousemove = setCoords;
-  update();
-})();
-</script>
+    <main>
+        <section id="home">
+            <h1>Welcome to My Cool Website</h1>
+            <p>Explore 3D animations and interactive content.</p>
+            <div id="threeD-content"></div>
+        </section>
+    </main>
+
+    <div id="cursor"></div>
+
+    <script src="Animation.js"></script>
+</body>
 </html>
